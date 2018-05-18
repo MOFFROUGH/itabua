@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-navigation-drawer temporary :mini-variant="miniVariant":clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
+    <v-navigation-drawer temporary :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
       <v-list>
-        <v-list-tile value="true" v-for="(item, i) in items" :key="i">
+        <v-list-tile value="true" v-for="(item, i) in items" :key="i" :to="item.to">
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
           </v-list-tile-action>
@@ -95,10 +95,14 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
+      items: [
+        {icon: 'bubble_chart', title: 'History', to: '/history'},
+        {icon: 'bubble_chart', title: 'Management', to: '/management'},
+        {icon: 'bubble_chart', title: 'Departments', to: '/departments'},
+        {icon: 'bubble_chart', title: 'Results', to: '/results'},
+        {icon: 'bubble_chart', title: 'Alumni', to: '/alumni'},
+        {icon: 'bubble_chart', title: 'Achievers', to: '/achievers'}
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
